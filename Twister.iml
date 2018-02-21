@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="EclipseModuleManager">
-    <varelement var="jar://$USER_HOME$/Desktop/WebTech Local/JARS/json-org.jar!/" value="USER_HOME/Desktop/WebTech Local/JARS/json-org.jar" />
-    <src_description expected_position="0" />
-  </component>
   <component name="FacetManager">
     <facet type="web" name="Web">
       <configuration>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/Twister/src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tomcat 8.0.14"/>
+	<classpathentry exported="true" kind="var" path="USER_HOME/Desktop/WebTech Local/JARS/json-org.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
