@@ -5,8 +5,7 @@ import java.sql.*;
 public class ConnexionDB {
 
     public static String insertConnexion(int user_id) throws DBException {
-        //TODO implement root and key gen
-        String key = "Connecté";
+        String key = String.valueOf(user_id);
         boolean root = false;
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         try {

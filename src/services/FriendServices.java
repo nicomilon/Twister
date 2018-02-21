@@ -1,12 +1,11 @@
 package services;
 
+import com.mongodb.Mongo;
 import org.json.JSONObject;
 
 public class FriendServices {
 
     public static JSONObject addComment(String valueKey, String valueText) {
-        //TODO comment
-
         return new JSONObject();
     }
 

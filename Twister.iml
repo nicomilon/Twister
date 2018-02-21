@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <varelement var="jar://$USER_HOME$/Desktop/WebTech Local/JARS/json-org.jar!/" value="USER_HOME/Desktop/WebTech Local/JARS/json-org.jar" />
+    <src_description expected_position="0" />
+  </component>
   <component name="FacetManager">
     <facet type="web" name="Web">
       <configuration>
@@ -10,6 +14,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -18,18 +23,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module" module-name="Twister/src" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.0.14" level="application_server_libraries" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/Desktop/WebTech Local/JARS" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Desktop/WebTech Local/JARS" recursive="false" />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="WebTech provideds" level="application" />
   </component>
 </module>
