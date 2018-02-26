@@ -49,12 +49,11 @@ public class ConnexionDB {
             String sql = "DELETE FROM connection WHERE connectionKey=?";
             PreparedStatement ps = connexion.prepareStatement(sql, ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, key);
-            int res = ps.executeUpdate();
+            int deleted = ps.executeUpdate();
             ps.close();
             connexion.close();
         } catch (SQLException e) {
             throw new DBException("Impossible de supprimer la connection : " + e.getMessage().toString());
         }
     }
-
 }
