@@ -3,8 +3,10 @@ package testing;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import bdd.FriendTools;
 import com.mongodb.Mongo;
 import org.json.JSONObject;
+import services.FriendServices;
 
 public class TestMain {
 
@@ -25,8 +27,7 @@ public class TestMain {
 
             System.out.println("Debuts tests MongoDB");
 
-            Mongo mongo = new Mongo();
-
+            FriendServices.addComment("31", "45", "Right on !");
 
         } catch (Exception e) {
             e.printStackTrace();

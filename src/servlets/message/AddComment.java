@@ -18,7 +18,8 @@ public class AddComment  extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String valueKey = request.getParameter("key");
 		String valueText = request.getParameter("text");
-		JSONObject json = services.FriendServices.addComment(valueKey, valueText);
+		String valuePostID = request.getParameter("post_id");
+		JSONObject json = services.FriendServices.addComment(valueKey,valuePostID, valueText);
 		out.println(json);
 	}
 
