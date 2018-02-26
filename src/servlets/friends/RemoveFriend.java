@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-public class RemoveFriend  extends HttpServlet {
+public class RemoveFriend extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		String valueKey = request.getParameter("key");
-		String valueFriendID = request.getParameter("id_friend");
-		JSONObject json = services.FriendServices.removeFriend(valueKey, valueFriendID);
-		out.println(json);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        String valueKey = request.getParameter("key");
+        String valueFriendID = request.getParameter("id_friend");
+        JSONObject json = services.FriendServices.removeFriend(valueKey, valueFriendID);
+        out.println(json);
+    }
 
 }

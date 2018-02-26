@@ -4,23 +4,6 @@ import java.sql.*;
 
 public class UserTools {
 
-    public static boolean userExists(String login) throws DBException {
-        try {
-            Connection connexion = Database.getMySQLConnection();
-            String sql = "SELECT user_id FROM Users WHERE login = ?";
-            PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
-            preparedStatement.setString(1, login);
-            ResultSet res = preparedStatement.executeQuery();
-            boolean exists = res.next();
-            res.close();
-            preparedStatement.close();
-            connexion.close();
-            return exists;
-        } catch (SQLException e) {
-            throw new DBException("Impossible de vérifier l'identifiant : " + e.getMessage() + ", cause : " + e.getCause());
-        }
-    }
-
     public static boolean passwordCheck(String login, String pswd) throws DBException {
         try {
             Connection connexion = Database.getMySQLConnection();
@@ -75,4 +58,68 @@ public class UserTools {
         }
     }
 
+    /**
+     * Check if user exists in the database
+     * @param ID the ID as an integer
+     * @return true if user exists
+     * @throws DBException
+     */
+    public static boolean userExists(int ID) throws DBException {
+        try {
+            Connection connexion = Database.getMySQLConnection();
+            String sql = "SELECT user_id FROM Users WHERE user_id = ?";
+            PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
+            preparedStatement.setInt(1, ID);
+            ResultSet res = preparedStatement.executeQuery();
+            boolean exists = res.next();
+            res.close();
+            preparedStatement.close();
+            connexion.close();
+            return exists;
+        } catch (SQLException e) {
+            throw new DBException("Impossible de vérifier l'identifiant : " + e.getMessage() + ", cause : " + e.getCause());
+        }
+    }
+
+    /**
+     * Check if user exists in the database
+     * @param login the login string
+     * @return true if user exists
+     * @throws DBException
+     */
+    public static boolean userExists(String login) throws DBException {
+        try {
+            Connection connexion = Database.getMySQLConnection();
+            String sql = "SELECT user_id FROM Users WHERE login = ?";
+            PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
+            preparedStatement.setString(1, login);
+            ResultSet res = preparedStatement.executeQuery();
+            boolean exists = res.next();
+            res.close();
+            preparedStatement.close();
+            connexion.close();
+            return exists;
+        } catch (SQLException e) {
+            throw new DBException("Impossible de vérifier l'identifiant : " + e.getMessage() + ", cause : " + e.getCause());
+        }
+    }
+
+    public static int getID(String key) throws DBException {
+        int user_id = -1;
+        try {
+            Connection connexion = Database.getMySQLConnection();
+            String sql = "SELECT * FROM connection WHERE connectionKey=?";
+            PreparedStatement ps = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, key);
+            ResultSet res = ps.executeQuery();
+            res.next();
+            user_id = res.getInt("id");
+            res.close();
+            ps.close();
+            connexion.close();
+        } catch (SQLException e) {
+            throw new DBException("Impossible d'obtenir l'ID : " + e.getMessage().toString());
+        }
+        return user_id;
+    }
 }
