@@ -27,9 +27,7 @@ public class TestMain {
 
             System.out.println("Debuts tests MongoDB");
 
-
-
-            System.out.println(FriendServices.addComment("31", "99", "How can it be you are so fantastical ?"));
+            //System.out.println(FriendServices.addComment("31", "99", "How can it be you are so fantastical ?"));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
