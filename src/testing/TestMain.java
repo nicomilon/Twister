@@ -23,12 +23,13 @@ public class TestMain {
             logoutTest = services.UserServices.logout(key);
             System.out.println(logoutTest);
 
-            System.out.println("Fin tests login/out");
+            System.out.println("Fin tests login/out\n\n");
 
             System.out.println("Debuts tests MongoDB");
 
-            FriendServices.addComment("31", "45", "Right on !");
 
+
+            System.out.println(FriendServices.addComment("31", "99", "How can it be you are so fantastical ?"));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

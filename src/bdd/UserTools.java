@@ -7,12 +7,12 @@ public class UserTools {
     public static boolean passwordCheck(String login, String pswd) throws DBException {
         try {
             Connection connexion = Database.getMySQLConnection();
-            String sql ="SELECT user_id FROM Users WHERE login=? AND PASSWORD(?) = password";
+            String sql = "SELECT user_id FROM Users WHERE login=? AND PASSWORD(?) = password";
             PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, pswd);
             ResultSet res = preparedStatement.executeQuery();
-            if(!res.next())
+            if (!res.next())
                 return false;
             res.close();
             preparedStatement.close();
@@ -26,7 +26,7 @@ public class UserTools {
     public static int getUserId(String login) throws DBException {
         try {
             Connection connexion = Database.getMySQLConnection();
-            String sql ="SELECT user_id FROM Users WHERE login=?";
+            String sql = "SELECT user_id FROM Users WHERE login=?";
             PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
             preparedStatement.setString(1, login);
             ResultSet res = preparedStatement.executeQuery();
@@ -60,6 +60,7 @@ public class UserTools {
 
     /**
      * Check if user exists in the database
+     *
      * @param ID the ID as an integer
      * @return true if user exists
      * @throws DBException
@@ -83,6 +84,7 @@ public class UserTools {
 
     /**
      * Check if user exists in the database
+     *
      * @param login the login string
      * @return true if user exists
      * @throws DBException
@@ -121,5 +123,23 @@ public class UserTools {
             throw new DBException("Impossible d'obtenir l'ID : " + e.getMessage().toString());
         }
         return user_id;
+    }
+
+    public static String getLogin(int user_id) throws DBException {
+        try {
+            Connection connexion = Database.getMySQLConnection();
+            String sql = "SELECT login FROM Users WHERE user_id = ?";
+            PreparedStatement preparedStatement = connexion.prepareStatement(sql, ResultSet.CONCUR_READ_ONLY);
+            preparedStatement.setInt(1, user_id);
+            ResultSet res = preparedStatement.executeQuery();
+            res.next();
+            String login = res.getString("login");
+            res.close();
+            preparedStatement.close();
+            connexion.close();
+            return login;
+        } catch (SQLException e) {
+            throw new DBException("Impossible de vérifier l'identifiant : " + e.getMessage() + ", cause : " + e.getCause());
+        }
     }
 }

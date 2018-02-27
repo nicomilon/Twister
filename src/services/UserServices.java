@@ -34,7 +34,6 @@ public class UserServices {
         }
     }
 
-
     public static JSONObject logout(String key) {
         if (key == null)
             return MsgTools.serviceRefused("No key", 1);
